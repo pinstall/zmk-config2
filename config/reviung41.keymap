@@ -38,7 +38,7 @@ behaviors {
         bindings = <&kp BKSP>;
         layers = <0 1>;
     };
-    */
+    
 
     combo_tab {
         timeout-ms = <50>;
@@ -47,10 +47,11 @@ behaviors {
         layers = <0>;
 
     };
+    */
     
     combo_esc {
         timeout-ms = <50>;
-        key-positions = <1 2>;
+        key-positions = <0 1>;
         bindings = <&kp ESC>;
         layers = <0>;
 
