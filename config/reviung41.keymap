@@ -9,8 +9,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+    */
 / {
-
+        
 behaviors {
       hm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
@@ -47,7 +48,7 @@ behaviors {
         layers = <0>;
 
     };
-    */
+
     
     combo_esc {
         timeout-ms = <50>;
@@ -59,6 +60,8 @@ behaviors {
 };
 
 };
+
+    */
 
 / {
         keymap {
