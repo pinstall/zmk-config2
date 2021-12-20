@@ -10,63 +10,119 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+
+behaviors {
+      hm: homerow_mods {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping_term_ms = <300>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+
+    combos {
+    compatible = "zmk,combos";
+    
+    combo_del {
+        timeout-ms = <50>;
+        key-positions = <18 19>;
+        bindings = <&kp DEL>;
+        layers = <1>;
+    };
+
+    /*
+    combo_bspc {
+        timeout-ms = <50>;
+        key-positions = <8 9>;
+        bindings = <&kp BKSP>;
+        layers = <0 1>;
+    };
+    */
+
+    combo_tab {
+        timeout-ms = <50>;
+        key-positions = <0 1>;
+        bindings = <&kp TAB>;
+        layers = <0>;
+
+    };
+    
+    combo_esc {
+        timeout-ms = <50>;
+        key-positions = <1 2>;
+        bindings = <&kp ESC>;
+        layers = <0>;
+
+    };
+};
+
+};
+
+/ {
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
+                //colemak dh layer
 // -------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
-//                         | ALT | LWR | SPC | RSE  | ALT |
+// |  toggle qwerty layer |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |   BKSP    |
+// |    TAB & Shift       |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |    '      |
+// |    BT layer          |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | SHFT(RET) |
+//                    | lower layer and return | toggle raise layer | SPC | none  | &none |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT RET
-                        &none  &mo 1 &kp SPACE &mo 2  &none
+   &tog 1        &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSPC
+   &mt LSHFT TAB &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &kp SQT
+   &mo 3         &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH    &mt RSHFT RET
+                              &mt LGUI RET   &tog 2 &kp SPACE          &none  &none //these last two on the right side do not register
                         >;
                 };
 
                 lower_layer {
+                //qwerty layer
 // ----------------------------------------------------------------------------------
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
-// |    |  _  |  +  |  {  |  }  | "|" |   | LFT | DWN |  UP | RGT |  `  |     ~     |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | HOME| END | PGUP| PGDN| PRSC| SHFT(RET) |
-//                       |     |     | RET | ADJ |     |
+// |  toggle qwerty layer |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
+// |    TAB & Shift       |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
+// |    BT layer          |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
+//                    | lower layer and return | toggle raise layer | SPC | none  | &none |
                         bindings = <
-   &trans &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp N8    &kp LPAR  &kp RPAR  &kp DEL
-   &trans &kp MINUS &kp KP_PLUS &kp LBRC &kp RBRC &kp PIPE       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp GRAVE &kp TILDE
-   &trans &kp ESC   &kp LGUI    &kp LALT &kp CLCK &kp DQT        &kp HOME  &kp END  &kp PG_UP &kp PG_DN &kp PSCRN &mt RSHFT RET
-                                 &none      &trans       &kp RET        &mo 3       &none
+   &trans        &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &mt LSHFT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &mo 3         &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT RET
+                              &mt LGUI RET   &tog 2 &kp SPACE          &none  &none //these last two on the right side do not register
                         >;
                 };
 
                 raise_layer {
+                  //Numbers and Arrows layer
 // -----------------------------------------------------------------------------------------
-// |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// |    |  -  |  =  |  [  |  ]  |  \  |   | F1  | F2  | F3  | F4  | F5  | F6  |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     | ADJ | BKSP |    |     |
+// |       `       |  =  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
+// |  TAB & Shift  |  -  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
+// |  Control      |  0  |  7  |  8  |  9  |  @  |   |  \    | End    |  ,    |   .    |    /       | shift |
+//                     |  command and return   | trans | space |    |     |
                         bindings = <
-   &trans &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6
-   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp DQT       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-                                &none      &mo 3       &kp BSPC        &trans      &none
+   &kp GRAVE        &kp EQUAL &kp N1    &kp N2    &kp N3    &kp LBRC      &kp RBRC         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
+   &mt LSHFT TAB    &kp MINUS &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
+   &kc LCTRL        &kp N0    &kp N7    &kp N8    &kp N9    &kp AT        &kp BACKSLASH    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
+                                                   &mt LGUI RET      &trans       &kp SPACE             &none      &none
                         >;
                 };
 
                 adjust_layer {
+                  //F2 and BT layer
 // -----------------------------------------------------------------------------------------
-// | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI- |    |         |   |       |     |     |     |     |        |
-// |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
-//                                              |     |     |     |     |     |
+// | RGB BRI+ | RGB SAT+ | F1 | F2 | F3   | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
+// | RGB BRI- | RGB SAT- | F4 | F5 | F6   |         |   |       |     |     |     |     |        |
+// |          |          | F7 | F8 | F9   |  F10    |   |  F11  | F12 |     |     |     |        |        
+//                                              |  ?   |   ?  |  ?   |  x   |  x   |
                         bindings = <
-   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &none
-                                                             &none      &trans       &tog 3        &trans      &none
+   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &kp F1 &kp F2 &kp F3 &rgb_ug RGB_TOG     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
+   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &kp F4 &kp F5 &kp F6 &none               &none        &none        &none        &none        &none        &none
+   &trans           &none           &kp F7 &kp F8 &kp F9 &kp F10            &kp F11      &kp F12      &none        &none        &none        &none
+                                                     &trans      &trans       &tog 3                  &none      &none
                         >;
                 };
         };
 };
+
+
