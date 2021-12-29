@@ -25,7 +25,7 @@
    &tog 1        &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSPC
    &mt LSHFT TAB &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &kp SQT
    &mo 3         &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH    &mt RSHFT RET
-                              &mt LGUI RET   &tog 2 &kp SPACE          &none  &none //these last two on the right side do not register
+                              &mt LGUI RET   &mt mo 2 tog 2  &kp SPACE          &none  &none //these last two on the right side do not register
                         >;
                 };
 
