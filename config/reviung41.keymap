@@ -33,7 +33,7 @@
 // |  toggle qwerty layer |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |   BKSP    |
 // |    TAB & Shift       |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |    '      |
 // |    BT layer          |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  | SHFT(RET) |
-//                    | lower layer and return | toggle raise layer | SPC | none  | &none |
+//                    | lower layer and return | hold/toggle raise layer | SPC | none  | &none |
                         bindings = <
    &tog 1        &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &kp BSPC
    &mt LSHFT TAB &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &kp SQT
@@ -48,26 +48,26 @@
 // |  toggle qwerty layer |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
 // |    TAB & Shift       |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
 // |    BT layer          |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
-//                    | lower layer and return | toggle raise layer | SPC | none  | &none |
+//                    | lower layer and return | hold/toggle raise layer | SPC | none  | &none |
                         bindings = <
    &trans        &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &mt LSHFT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &mo 3         &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT RET
-                              &mt LGUI RET   &tog 2 &kp SPACE          &none  &none //these last two on the right side do not register
+                              &mt LGUI RET   &mo_tog 2 2 &kp SPACE          &none  &none //these last two on the right side do not register
                         >;
                 };
 
                 raise_layer {
                   //Numbers and Arrows layer
 // -----------------------------------------------------------------------------------------
-// |       `       |  =  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
-// |  TAB & Shift  |  -  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
-// |  Control      |  /  |  7  |  8  |  9  |  0  |   |  @    | End    |  ,    |   .    |    /       | shift |
+// |       `       |  !  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
+// |  TAB & Shift  |  =  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
+// |  Control      |  -  |  7  |  8  |  9  |  0  |   |  @    | End    |  ,    |   .    |    /       | shift |
 //                     |  command and return   | trans | space |    |     |
                         bindings = <
-   &kp GRAVE        &kp EQUAL &kp N1    &kp N2    &kp N3    &kp LBRC      &kp RBRC         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
-   &mt LSHFT TAB    &kp MINUS &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
-   &kp LCTRL        &kp BACKSLASH    &kp N7    &kp N8    &kp N9    &kp N0        &kp AT    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
+   &kp GRAVE        &kp EXCL &kp N1    &kp N2    &kp N3    &kp LBRC      &kp RBRC         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
+   &mt LSHFT TAB    &kp EQUAL &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
+   &kp LCTRL        &kp MINUS    &kp N7    &kp N8    &kp N9    &kp N0        &kp AT    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
                                                    &mt LGUI RET      &trans       &kp SPACE             &none      &none
                         >;
                 };
