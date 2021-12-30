@@ -61,13 +61,13 @@
                   //Numbers and Arrows layer
 // -----------------------------------------------------------------------------------------
 // |       `       |  !  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
-// |  TAB & Shift  |  =  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
-// |  Control      |  -  |  7  |  8  |  9  |  0  |   |  @    | End    |  ,    |   .    |    /       | shift |
+// |  TAB & Shift  |  -  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
+// |  Control      |  =  |  7  |  8  |  9  |  0  |   |  @    | End    |  ,    |   .    |    /       | shift |
 //                     |  command and return   | trans | space |    |     |
                         bindings = <
    &kp GRAVE        &kp EXCL &kp N1    &kp N2    &kp N3    &kp LBRC      &kp RBRC         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
-   &mt LSHFT TAB    &kp EQUAL &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
-   &kp LCTRL        &kp MINUS    &kp N7    &kp N8    &kp N9    &kp N0        &kp AT    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
+   &mt LSHFT TAB    &kp MINUS &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
+   &kp LCTRL        &kp EQUAL    &kp N7    &kp N8    &kp N9    &kp N0        &kp AT    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
                                                    &mt LGUI RET      &trans       &kp SPACE             &none      &none
                         >;
                 };
