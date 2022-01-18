@@ -60,13 +60,13 @@
                 raise_layer {
                   //Numbers and Arrows layer
 // -----------------------------------------------------------------------------------------
-// |       `       |  !  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
-// |  TAB & Shift  |  -  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | '  |
+// |       ESC       |  !  |  1  |  2  |  3  |  [  |   |  ]    |  PGUP  | Up    |  PGDN  |  CAPSLOCK  | DEL |
+// |  TAB & Shift  |  -  |  4  |  5  |  6  |  &  |   | Home  | Left   | Down  | Right  |   del      | `  |
 // |  Control      |  =  |  7  |  8  |  9  |  0  |   |  @    | End    |  ,    |   .    |    /       | shift |
 //                     |  command and return   | trans | space |    |     |
                         bindings = <
-   &kp GRAVE        &kp EXCL &kp N1    &kp N2    &kp N3    &kp LBKT      &kp RBKT         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
-   &mt LSHFT TAB    &kp MINUS &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp SQT
+   &kp ESC        &kp EXCL &kp N1    &kp N2    &kp N3    &kp LBKT      &kp RBKT         &kp PG_UP   &kp UP    &kp PG_DN    &kp CLCK    &kp BSPC
+   &mt LSHFT TAB    &kp MINUS &kp N4    &kp N5    &kp N6    &kp AMPS      &kp HOME         &kp LEFT    &kp DOWN  &kp RIGHT    &kp DEL     &kp GRAVE
    &kp LCTRL        &kp EQUAL    &kp N7    &kp N8    &kp N9    &kp N0        &kp AT    &kp END     &kp COMMA &kp DOT      &kp FSLH    &mt RSHFT RET
                                                    &mt LGUI RET      &trans       &kp SPACE             &none      &none
                         >;
@@ -77,7 +77,7 @@
 // -----------------------------------------------------------------------------------------
 // | RGB BRI+ | RGB SAT+ | F1 | F2 | F3   | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
 // | RGB BRI- | RGB SAT- | F4 | F5 | F6   |         |   |       |     |     |     |     |        |
-// |          |          | F7 | F8 | F9   |  F10    |   |  F11  | F12 |     |     |     |        |        
+// |          |          | F7 | F8 | F9   |  F10    |   |  F11  | F12 |     |     |     |   todo:MOUSE LAYER     |        
 //                                              |  ?   |   ?  |  ?   |  x   |  x   |
                         bindings = <
    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &kp F1 &kp F2 &kp F3 &rgb_ug RGB_TOG     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
